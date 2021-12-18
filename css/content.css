@@ -1,0 +1,136 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#123, #111);
+}
+
+@font-face {
+  font-family: "Pokemon Classic";
+  src: url("Pokemon-Classic.woff2") format("woff2"),
+    url("Pokemon-Classic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-chat-bubble {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.chat-bubble {
+  position: absolute;
+  bottom: 38%;
+  display: block;
+  margin: 0 auto;
+  height: 24%;
+  z-index: 1;
+
+  --delay: 4000ms;
+  --duration: 1250ms;
+  animation-delay: var(--delay);
+  --animation-delay: var(--delay);
+  animation-duration: var(--duration);
+  --animate-duration: var(--duration);
+}
+
+.container-text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.container-text h1 {
+  color: rgb(0, 0, 0);
+  font-family: "Pokemon Classic";
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.snowman {
+  position: absolute;
+  left: 10%;
+  bottom: 5%;
+  height: 20%;
+  z-index: 1;
+}
+
+.snowman-top {
+  --delay: 2500ms;
+  --duration: 1500ms;
+
+  animation-delay: var(--delay);
+  --animation-delay: var(--delay);
+
+  animation-duration: var(--duration);
+  --animate-duration: var(--duration);
+}
+
+.snowman-mid {
+  --delay: 1250ms;
+  --duration: 1500ms;
+
+  animation-delay: var(--delay);
+  --animation-delay: var(--delay);
+
+  animation-duration: var(--duration);
+  --animate-duration: var(--duration);
+}
+
+.snowman-bottom {
+  --duration: 1500ms;
+
+  animation-duration: var(--duration);
+  --animate-duration: var(--duration);
+}
+
+@keyframes snowfall {
+  0% {
+      transform: translate3d(var(--left-ini), -1vh, 0);
+  }
+  100% {
+      transform: translate3d(var(--left-end), 110vh, 0);
+  }
+}
+
+.snowflake {
+  --size: 1vw;
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5vh;
+}
+
+h1.start-text{
+  color: aliceblue;
+  
+  --delay: 1000ms;
+  --duration: 1250ms;
+
+  animation-delay: var(--delay);
+  --animation-delay: var(--delay);
+
+  animation-duration: var(--duration);
+  --animate-duration: var(--duration);
+}
