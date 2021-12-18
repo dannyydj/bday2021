@@ -69,7 +69,7 @@ html, body {
 .snowman {
   position: absolute;
   left: 10%;
-  bottom: 5%;
+  bottom: 9%;
   height: 20%;
   z-index: 1;
 }
