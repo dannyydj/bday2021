@@ -77,9 +77,9 @@ async function typewriter() {
 
 async function flashStart() {
     var tapmeGiftbox = document.getElementById("tapme")
-    var tapmeText = document.getElementById("tapme-2")
-    var speed = 3500
-    while(loopFlash < 5){
+    // var tapmeText = document.getElementById("tapme-2")
+    var speed = 1700
+    while(loopFlash < 50){
         tapmeGiftbox.classList.add("animate__animated", "animate__heartBeat"); 
         // tapmeText.classList.add("animate__animated", "animate__flash"); 
         loopFlash++
