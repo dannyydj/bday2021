@@ -28,7 +28,7 @@ function play(){
     snowman();
     snowfall();
     setTimeout(function() { typewriter(); }, 5500);
-    // playmusic();
+    playmusic();
 }
 
 function playmusic(){
