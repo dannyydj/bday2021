@@ -57,7 +57,16 @@ html, body {
   z-index: 2;
 }
 
-.container-text h1 {
+.container-start {
+  padding-top:50%;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
   color: rgb(0, 0, 0);
   font-family: "Pokemon Classic";
   overflow: hidden;

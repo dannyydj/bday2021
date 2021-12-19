@@ -23,12 +23,12 @@ window.onload = function() {
 var loopFlash = 1
 function play(){
     loopFlash = 100;
-    containerText = document.getElementById("tapme").parentNode
+    containerText = document.getElementById("tapme").parentNode.parentNode
     containerText.style.display = "none"
     snowman();
     snowfall();
     setTimeout(function() { typewriter(); }, 5500);
-    playmusic();
+    // playmusic();
 }
 
 function playmusic(){
@@ -58,35 +58,6 @@ function snowman(){
     console.log("start snowman");
 }
 
-function snowfall(){
-    for (i = 0; i < 50; i++){
-        var snowflake = document.createElement("div")
-        snowflake.classList.add("snowflake");
-
-        ranSize = (Math.random() * (2.4 - 0.20) + 0.20).toFixed(2)
-        ranIni = (Math.random() * (15.0 - (-15.0)) + (-15.0)).toFixed(2)
-        ranEnd = (Math.random() * (15.0 - (-15.0)) + (-15.0)).toFixed(2)
-        ranLeft = Math.ceil(Math.random() * (100 - 1) + 1);
-        ranDelay = Math.ceil(Math.random() * (20 - 2) + 2) * -1;
-        ranAnimate = Math.ceil(Math.random() * (20 - 9) + 9);
-        ranBlur =  Math.ceil(Math.random() * (3 - 1) + 1);
-        // console.log(ranLeft)
-
-        snowflake.style.setProperty('--size', ranSize+'vw');
-        snowflake.style.setProperty('--left-ini', ranIni+'vw');
-        snowflake.style.setProperty('--left-end', ranEnd+'vw');
-        snowflake.style.setProperty('left', ranLeft+'vw');
-        snowflake.style.setProperty('animation', 'snowfall '+ranAnimate+'s linear infinite');
-        snowflake.style.setProperty('animation-delay', ranDelay+'s');
-        snowflake.style.setProperty('filter', 'blur('+ranBlur+'px)');
-        snowflake.style.setProperty('top', '-5vh');
-
-        document.getElementById("body").appendChild(snowflake);
-    }
-
-    console.log("start snowfall");
-}
-
 const timer = ms => new Promise(res => setTimeout(res, ms))
 async function typewriter() {
     var containerText = document.getElementById("greet")
@@ -105,14 +76,47 @@ async function typewriter() {
 }
 
 async function flashStart() {
-    var tapmeText = document.getElementById("tapme")
+    var tapmeGiftbox = document.getElementById("tapme")
+    var tapmeText = document.getElementById("tapme-2")
     var speed = 3500
     while(loopFlash < 5){
-        tapmeText.classList.add("animate__animated", "animate__flash"); 
+        tapmeGiftbox.classList.add("animate__animated", "animate__heartBeat"); 
+        // tapmeText.classList.add("animate__animated", "animate__flash"); 
         loopFlash++
         console.log(loopFlash)
         await timer(speed)
-        tapmeText.classList.remove("animate__animated", "animate__flash"); 
+        tapmeGiftbox.classList.remove("animate__animated", "animate__heartBeat");
+        // tapmeText.classList.remove("animate__animated", "animate__flash"); 
         await timer(speed)
     }
+}
+async function snowfall(){
+    var speed = 350
+    for (i = 0; i < 50; i++){
+        var snowflake = document.createElement("div")
+        snowflake.classList.add("snowflake");
+
+        ranSize = (Math.random() * (2.4 - 0.20) + 0.20).toFixed(2)
+        ranIni = (Math.random() * (15.0 - (-15.0)) + (-15.0)).toFixed(2)
+        ranEnd = (Math.random() * (15.0 - (-15.0)) + (-15.0)).toFixed(2)
+        ranLeft = Math.ceil(Math.random() * (100 - 1) + 1);
+        ranDelay = 0; //Math.ceil(Math.random() * (20 - 2) + 2) * -1;
+        ranAnimate = Math.ceil(Math.random() * (20 - 9) + 9);
+        ranBlur =  Math.ceil(Math.random() * (3 - 1) + 1);
+        // console.log(ranLeft)
+
+        snowflake.style.setProperty('--size', ranSize+'vw');
+        snowflake.style.setProperty('--left-ini', ranIni+'vw');
+        snowflake.style.setProperty('--left-end', ranEnd+'vw');
+        snowflake.style.setProperty('left', ranLeft+'vw');
+        snowflake.style.setProperty('animation', 'snowfall '+ranAnimate+'s linear infinite');
+        snowflake.style.setProperty('animation-delay', ranDelay+'s');
+        snowflake.style.setProperty('filter', 'blur('+ranBlur+'px)');
+        snowflake.style.setProperty('top', '-5vh');
+
+        document.getElementById("body").appendChild(snowflake);
+        await timer(speed)
+    }
+
+    console.log("start snowfall");
 }
